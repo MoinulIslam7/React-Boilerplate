@@ -1,336 +1,343 @@
-# React JS Advance-Level Folder Structure
+# React + Vite Advanced Boilerplate
 
-How to run the project
-```javascript
-npm i
+A modern, production-ready React boilerplate with the latest technologies and best practices for building scalable web applications.
+
+## 🚀 Tech Stack
+
+- **React 19** - Latest React with improved performance and new features
+- **Vite 7** - Next-generation frontend tooling
+- **Tailwind CSS 4** - Utility-first CSS framework with new `@theme` architecture
+- **Redux Toolkit 2** - State management with RTK Query
+- **React Router 7** - Client-side routing
+- **ESLint 9** - Code linting with flat config
+- **Socket.io Client** - Real-time communication
+- **Axios** - HTTP client
+- **React Hot Toast** - Beautiful notifications
+
+## 📦 Quick Start
+
+### Installation
+
+```bash
+npm install --legacy-peer-deps
 ```
-and
-```javascript
-npm dev
+
+### Development
+
+```bash
+npm run dev
 ```
 
-Before using This project install latest versions of following packages
+### Production Build
 
-- [Axios](https://www.npmjs.com/package/axios)
-- [Tailwind](https://tailwindcss.com/docs/guides/vite)
-- React Router Dom [Latest React Router v6](https://reactrouter.com/en/dev/upgrading/reach#install-react-router-v6)
-- Other Required packages
+```bash
+npm run build
+```
 
-In the project I have just set Up most used folder structure:
+### Linting
 
-```javascript
-React JS Advanced Folder Structure
-.
-├── public
-├── src
-    ├── assets
-    |     ├── Audios
-    |     ├── Icons
-    |     ├── Images
-    |     └── Videos
-    ├── components
-          ├── Footer
-          ├── Navbar
-          ├── Shared
-    |           ├── Button
-    |           ├── Dropdown
-    |           ├── Inputs
-    |           ├── Modal
-    |           ├── Switch
-    |           ├── ToolTipd
-    ├──  db
-    |     ├── productsData.js
-    |     └── userData.js
-    ├──  Feature
-          ├── Authentication
-    |     └── Support
-    ├── layout
-    |     ├── DashboardLayout.jsx
-    |     ├── Layout.jsx
-    ├── lib
-          ├── Toaster
-                ├── Toast.jsx
-    ├── pages
-    |     ├── Home
-    |     |     ├── Home.jsx
-    |     ├── Login
-    |     |     ├── Login.jsx
-    |     ├── Signup
-    |     |     ├── Signup.jsx
-    |     └── About
-    |     |     ├── About.jsx
-    |     └── Loading
-    |     |     ├── Loading.jsx
-    |     └── ErrorPage
-    |           ├── ErrorPage.jsx
-    ├── Routers
-    |     └── Lazy.jsx
-    |     └── PrivateRoute.jsx
-    |     └── Routers.jsx
-    ├── store
-    |     ├── action.js  
-    |     ├── reducers.js  
-    |     └── store.js
-    ├── services
-    |     ├── api.js          // API request functions
-    |     └── socket.js    // Data manipulation functions
-    ├── utils
-    |     ├── constants
-    |     |     ├── Strapi.js
-    |     |     └── Firebase.js
-    |     ├── helpers
-    |     |     ├── arrays.js
-    |     |     └── helpers.js
-    |     └── hooks  
-    |           └── useIsMobile.js  
-    ├── .env
-    ├── app.js
-    ├── index.css
-    ├── index.js
-|    
-├── index.html
-├── .gitignore
-├── package-lock.json
-├── package.json
+```bash
+npm run lint
+```
+
+## 📁 Project Structure
+
+```
+React-Boilerplate/
+├── public/                      # Static assets
+├── config/                      # Environment configurations
+│   ├── dev.env                 # Development environment variables
+│   └── prod.env                # Production environment variables
+├── src/
+│   ├── assets/                 # Media assets
+│   │   ├── Audios/
+│   │   ├── Icons/
+│   │   ├── Images/
+│   │   └── Videos/
+│   ├── components/             # Reusable UI components
+│   │   ├── Footer/
+│   │   │   └── Footer.jsx
+│   │   ├── Navbar/
+│   │   │   ├── Navbar.jsx
+│   │   │   ├── DashboardNav.jsx
+│   │   │   └── DashboardSidebar.jsx
+│   │   └── index.js           # Barrel exports
+│   ├── db/                     # Mock/Static data
+│   │   ├── ProductsData.js
+│   │   └── UserData.js
+│   ├── feature/                # Feature-specific modules
+│   │   ├── Authentication/
+│   │   │   └── Authentication.js
+│   │   └── Support/
+│   │       └── Support.js
+│   ├── layout/                 # Layout components
+│   │   ├── DashboardLayout.jsx
+│   │   └── Layout.jsx
+│   ├── lib/                    # Third-party library wrappers
+│   │   └── Toaster/
+│   │       └── Toast.jsx
+│   ├── pages/                  # Page components
+│   │   ├── Home/
+│   │   │   └── Home.jsx
+│   │   ├── About/
+│   │   │   └── About.jsx
+│   │   ├── Login/
+│   │   │   └── Login.jsx
+│   │   ├── SignUp/
+│   │   │   └── SignUp.jsx
+│   │   ├── Dashboard/
+│   │   │   └── Dashboard.jsx
+│   │   ├── Shop/
+│   │   │   └── Shop.jsx
+│   │   ├── Payment/
+│   │   │   └── Payment.jsx
+│   │   ├── Loading/
+│   │   │   └── Landing.jsx
+│   │   └── ErrorPage/
+│   │       └── ErrorPage.jsx
+│   ├── providers/              # Context providers
+│   │   ├── AppProvider.jsx    # Main app provider (Redux, Router)
+│   │   ├── AuthProvider.jsx   # Authentication context
+│   │   └── index.js           # Barrel exports
+│   ├── Routers/                # Routing configuration
+│   │   ├── Routers.jsx        # Main routes
+│   │   ├── PrivateRoute.jsx   # Protected routes
+│   │   └── Lazy.jsx           # Lazy loading wrapper
+│   ├── services/               # External services
+│   │   ├── Api.js             # API configuration
+│   │   └── socket.js          # Socket.io configuration
+│   ├── store/                  # Redux store
+│   │   ├── store.js           # Store configuration
+│   │   ├── slices/            # Redux slices
+│   │   │   └── counterSlice.js
+│   │   └── index.js           # Barrel exports
+│   ├── utils/                  # Utility functions
+│   │   ├── helpers/           # Helper functions
+│   │   │   ├── hitToast.js
+│   │   │   └── index.js
+│   │   ├── hooks/             # Custom React hooks
+│   │   │   ├── useFetch.js
+│   │   │   ├── useGlobal.js
+│   │   │   ├── useIsMobile.js
+│   │   │   └── index.js
+│   │   └── index.js           # Barrel exports
+│   ├── App.jsx                 # Root component
+│   ├── main.jsx                # Entry point
+│   └── index.css               # Global styles + Tailwind
+├── eslint.config.js            # ESLint v9 flat config
+├── postcss.config.js           # PostCSS configuration
+├── vite.config.js              # Vite configuration
+├── package.json                # Dependencies and scripts
 └── README.md
+
 ```
 
-## Folders include
+## 🗂️ Folder Descriptions
 
-- `Public`
-- `Assests`
-- `Components`
-- `db`
-- `layout`
-- `Pages`
-- `Routes`
-- `services`
-- `store`
-- `utils`
-  - `Constants`
-  - `helpers`
-  - `hooks`
-- `.env.example` / `.env.development`
-- `.eslintrc.cjs`
-- `.prettierrc.cjs`
-- `.jsonconfig.json`
-- `.gitignore`
-- `package.json`
-- `.vite.config.js`
+### **providers/**
+Contains React context providers for global state management:
+- `AppProvider.jsx` - Wraps the app with Redux Provider and React Router
+- `AuthProvider.jsx` - Authentication context and hooks
+- Uses barrel exports for clean imports: `import { AppProvider, AuthProvider } from './providers'`
 
-### Public
+### **store/**
+Redux Toolkit store with modern architecture:
+- `store.js` - Store configuration
+- `slices/` - Redux slices for different features
+- Barrel exports for easy access: `import { store, increment } from './store'`
 
-Public mainly contain root file **`index.html`** which help to run react project.
+### **components/**
+Reusable UI components organized by feature:
+- Each component in its own folder
+- Barrel exports for clean imports: `import { Navbar, Footer } from './components'`
 
-### Assests
+### **pages/**
+Page-level components representing different routes:
+- Home, About, Login, SignUp, Dashboard, etc.
+- Each page in its own folder for better organization
 
-In Assets folder you can put following things.
+### **Routers/**
+Routing configuration and utilities:
+- `Routers.jsx` - Main route definitions
+- `PrivateRoute.jsx` - Authentication-protected routes
+- `Lazy.jsx` - Component lazy loading wrapper
 
-- Images
-- Video
-- Icons
-- CSS
+### **services/**
+External service integrations:
+- `Api.js` - Axios configuration and API endpoints
+- `socket.js` - Socket.io client setup
 
-### Components
+### **utils/**
+Utility functions and custom hooks:
+- `helpers/` - Utility functions (toast notifications, etc.)
+- `hooks/` - Custom React hooks (useFetch, useIsMobile, etc.)
+- Barrel exports at all levels for convenient imports
 
-Component will have all the components which are reuseable anywhere in website. Like - Button - Cards - DropDownBtn - inputs - Modal - Popups - Toast - Tooltip - Text/Heading/Title - Skeleton - Spiner/Loader
+### **layout/**
+Layout components that wrap page content:
+- `Layout.jsx` - Main layout with Header/Footer
+- `DashboardLayout.jsx` - Dashboard-specific layout
 
-### Constants
+### **db/**
+Mock data and static datasets:
+- `ProductsData.js` - Product mock data
+- `UserData.js` - User mock data
 
-Constants folder have **Tokens,** logins, and those details which we don't want to share with public. Like **Env** files are used to store sensitive credentials such as **API keys.**
-An environment variable supports storing the API link at one location so that we do not need to change the Link in each file manually.
+### **assets/**
+Static media files organized by type:
+- Images, Videos, Icons, Audios
 
+## ⚙️ Configuration Files
+
+### **eslint.config.js** (ESLint v9 Flat Config)
+Modern ESLint configuration:
 ```javascript
-const API_BASE_URL = 'https://api.example.com';
-const MAX_ITEMS_PER_PAGE = 10;
-```
+import js from '@eslint/js';
+import react from 'eslint-plugin-react';
 
-### db
-
-Here we provide JSON Formate of data in frontend in React APP.
-
-- products data
-- users data
-
-### Helpers
-
-Helpers used to store utility functions and modules that provide various helper functionalities. These functions are usually small, reusable, and not directly tied to the main business logic of your application.
-
-- Array to Object
-- Object to Array
-- Date Formatting
-- Number Formatting
-- Validation
-- Api Request
-
-[Helper Functions Details](https://chat.openai.com/share/32e7459b-dd5a-495a-a418-db2453361370)
-
-### Layout
-
-This is just a special folder for **placing any layout based components.**
-
-- Header
-- Footer
-- Breadcrumbs
-- Navbar
-- Sidebar
-
-### Pages
-
-Pages will have all the pages which we will use in website.
-
-### Routes
-
-Router will have all the Routes in website. Where we are going and where we want to go.
-
-### Services
-
-In Services we put configuration file, like when you are using google firebase then your firebase config file will be in services folder.
-
-The **"services"** folder is often used to contain code related to making **\*`API`** requests and managing data from external sources. This folder helps separate the concerns of your application by isolating data fetching and manipulation logic from the components that render the UI.
-
-```javascript
-// services/apiService.js
-import axios from 'axios';
-
-export function fetchUserData(userId) {
-  return axios.get(`/api/users/${userId}`);
-}
-```
-
-### Store
-"store" folder in a React application typically refers to a directory where you manage your application's state using state management libraries like 
-- Redux 
-- Redux Toolkit
-- Zustand
-- Context Api
-- Mobx
-
-```javascript
-|-- store/
-|   |-- actions.js        // Redux action creators
-|   |-- reducers.js       // Redux reducers
-|   |-- store.js          // Redux store configuration
-```
-
-### Utils
-
-**`Utils`** folder is a common convention in many software projects, including React applications, for storing utility functions and helper modules that provide general-purpose functionality across different parts of the application. 
-- constants
-- helpers
-- hooks
-
-Example: 
-```javascript
-// utils/stringUtils.js
-export function capitalizeFirstLetter(str) {
-  return str.charAt(0).toUpperCase() + str.slice(1);
-}
-
-// utils/dateUtils.js
-export function formatDate(date) {
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
-  return new Date(date).toLocaleDateString(undefined, options);
-}
-```
-
-### .env.development
-
-Env files are used to store sensitive credentials such as API keys.
-
-```javascript
-VITE_APP_API_URL=http://localhost:3001
-VITE_APP_DEBUG_MODE=true
-```
-
-### .env.example
-
-Env files are used to store sensitive credentials such as API keys.
-
-```javascript
-VITE_APP_API_URL=
-VITE_APP_API_KEY=
-```
-
-### .eslintrc.cjs
-
-ESLint, which is a popular tool for linting and enforcing coding style and best practices in JavaScript code. The .eslintrc.cjs file is written in CommonJS module format and is used to configure ESLint for your project.
-
-### .gitignore
-
-.gitignore file contain all those files,folders name which user want to skip to push online. If you don't want to push any specific file/folder then you should put their name in .gitignore
-
-### .prettierrc.cjs
-
-`.prettierrc.cjs` file is a configuration file used for Prettier, which is a widely used code formatting tool. Prettier helps ensure consistent and automatic code formatting across your codebase. The `.prettierrc.cjs` file is written in CommonJS module format and is used to configure Prettier's behavior for your project.
-
-- File Format & Naming
-- Configuration Setup
-- Export Configuration
-
-```javascript
-module.exports = {
-  printWidth: 80,
-  tabWidth: 2,
-  singleQuote: true,
-  trailingComma: 'es5',
-};
-```
-
-### jscongig.json
-
-- File Purpose
-- Configuration Setup:
-- JSON Format
-
-```javascript
-{
-  "compilerOptions": {
-    "baseUrl": "./",
-    "paths": {
-      "@/*": ["src/*"]
-    }
-  }
-}
-```
-
-### package.json
-
-package.json file is core to the Nodejs ecosystem and is a fundamental part of understanding and working with Node. js , npm , and even modern JavaScript . This file is used as a manifest, storing information about applications, modules, packages, and more.
-
-### vite.config.js
-
-- File Purpose:
-The vite.config.js file allows you to customize various aspects of your Vite project, including configuration options for the development server, build process, and plugin settings.
-
-- Configuration Setup:
-Inside the vite.config.js file, you export an object containing the configuration options for your Vite project. This object can include settings related to the development server, build process, plugins, and more.
-
-- JavaScript Format:
-The vite.config.js file is written in JavaScript, and it's named vite.config.js. It should be placed in the root directory of your Vite project.
-
-```javascript
-// vite.config.js
-export default {
-  server: {
-    port: 3000
+export default [
+  {
+    files: ['**/*.{js,jsx}'],
+    plugins: { react },
+    rules: {
+      'react/prop-types': 'off',
+    },
   },
-  build: {
-    minify: true
-  },
-  plugins: [/* your plugins here */]
-};
+];
 ```
 
-@import 
+### **vite.config.js**
+Vite configuration with path aliases:
 ```javascript
 export default defineConfig({
   resolve: {
     alias: {
       '@': '/src',
-      '@page': '/src/page'
     }
   },
   plugins: [react()],
 })
 ```
+
+### **postcss.config.js**
+PostCSS with Tailwind CSS v4:
+```javascript
+export default {
+  plugins: {
+    '@tailwindcss/postcss': {},
+    autoprefixer: {},
+  },
+}
+```
+
+### **index.css** (Tailwind v4 Configuration)
+Tailwind CSS v4 uses CSS-based configuration:
+```css
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #001E17;
+  --color-primary1: #023535;
+  --font-family-nunito: 'Nunito Sans', sans-serif;
+}
+```
+
+## 🔐 Environment Variables
+
+Create environment files in the `config/` directory:
+
+**config/dev.env**
+```env
+VITE_APP_API_URL=http://localhost:3001
+VITE_APP_DEBUG_MODE=true
+```
+
+**config/prod.env**
+```env
+VITE_APP_API_URL=https://api.production.com
+VITE_APP_DEBUG_MODE=false
+```
+
+## 📚 Key Features
+
+### Barrel Exports
+Clean imports using index.js files:
+```javascript
+// Instead of:
+import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
+
+// Use barrel exports:
+import { Navbar, Footer } from './components';
+```
+
+### Path Aliases
+Import using `@` alias:
+```javascript
+import { useIsMobile } from '@/utils/hooks';
+import { hitToast } from '@/utils/helpers';
+```
+
+### Redux Toolkit
+Modern Redux with RTK:
+```javascript
+import { store, increment, decrement } from './store';
+```
+
+### React Router v7
+Latest routing with data APIs:
+```javascript
+<Route path="/" element={<Home />} />
+<Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+```
+
+## 🧪 Scripts
+
+```json
+{
+  "dev": "env-cmd -f ./config/dev.env vite",
+  "build": "env-cmd -f ./config/prod.env vite build",
+  "lint": "eslint . --report-unused-disable-directives --max-warnings 0",
+  "preview": "vite preview"
+}
+```
+
+## 📝 Best Practices
+
+1. **Component Organization**: Each component in its own folder with related files
+2. **Barrel Exports**: Use index.js for clean imports
+3. **State Management**: Redux Toolkit for global state, Context for auth
+4. **Code Quality**: ESLint v9 with React-specific rules
+5. **Styling**: Tailwind CSS v4 with custom design tokens
+6. **Type Safety**: PropTypes disabled (ready for TypeScript migration)
+7. **Performance**: Lazy loading for routes, optimized builds
+
+## 🔄 Migration Notes
+
+This boilerplate uses the latest versions with breaking changes addressed:
+
+- **Tailwind CSS v4**: Uses `@import` and `@theme` instead of config files
+- **ESLint v9**: Migrated to flat config format
+- **React 19**: JSX runtime automatically imports React
+- **Redux Toolkit v2**: Updated API and type definitions
+- **React Router v7**: Compatible with latest routing patterns
+
+## 📖 Learn More
+
+- [React Documentation](https://react.dev)
+- [Vite Documentation](https://vitejs.dev)
+- [Tailwind CSS v4](https://tailwindcss.com)
+- [Redux Toolkit](https://redux-toolkit.js.org)
+- [React Router](https://reactrouter.com)
+
+## 📄 License
+
+MIT
+
+## 👤 Author
+
+**arrafi-mahin** - [GitHub Profile](https://github.com/MoinulIslam7)
+
+---
+
+⭐ Star this repository if you find it helpful!
